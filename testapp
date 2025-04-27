@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play Song from YouTube</title>
+    <title>Brendan Earl's Portfolio</title>
     <style>
         /* Style for the button */
         #playButton {
@@ -25,37 +25,57 @@
             display: none; /* Hidden initially */
             margin-top: 20px;
         }
+
+        /* Style for the link */
+        #videoLink {
+            font-size: 18px;
+            color: blue;
+            text-decoration: none;
+            margin-top: 20px;
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <h1>Play a Song from YouTube</h1>
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="resume.html">My Resume</a></li>
+            <li><a href="#" id="videoLink">Watch a YouTube Video</a></li>
+        </ul>
+    </nav>
 
-    <!-- The Big Red Button -->
-    <button id="playButton">Play Song</button>
+    <section>
+        <p>This is a simple webpage to showcase my resume, work, and a song from YouTube.</p>
+        <button id="playButton">Play Song</button>
 
-    <!-- The YouTube Player (initially hidden) -->
-    <div id="youtubePlayer">
-        <iframe id="ytPlayer" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+        <!-- The YouTube Player (initially hidden) -->
+        <div id="youtubePlayer">
+            <iframe id="ytPlayer" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
 
     <script>
         // Function to play the YouTube video when the button is clicked
         document.getElementById('playButton').addEventListener('click', function() {
-            var videoId = prompt("Enter YouTube video ID or URL:");
+            var videoId = "ZXhuso4OTG4"; // Hardcoded YouTube video ID
 
-            // Extract the video ID from the URL if a URL is provided
-            if (videoId.includes('youtube.com')) {
-                const url = new URL(videoId);
-                videoId = url.searchParams.get("v");
-            }
+            // Show the YouTube player and load the video
+            document.getElementById('youtubePlayer').style.display = 'block';
+            document.getElementById('ytPlayer').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+        });
 
-            if (videoId) {
-                // Show the YouTube player and load the video
-                document.getElementById('youtubePlayer').style.display = 'block';
-                document.getElementById('ytPlayer').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
-            } else {
-                alert("Invalid video ID or URL.");
-            }
+        // Optional: Make the video link also load the video
+        document.getElementById('videoLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            var videoId = "ZXhuso4OTG4"; // Hardcoded YouTube video ID
+
+            // Show the YouTube player and load the video
+            document.getElementById('youtubePlayer').style.display = 'block';
+            document.getElementById('ytPlayer').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
         });
     </script>
 </body>
