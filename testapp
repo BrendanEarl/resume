@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Song from YouTube</title>
+    <style>
+        /* Style for the button */
+        #playButton {
+            padding: 20px 40px;
+            font-size: 24px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        
+        #playButton:hover {
+            background-color: darkred;
+        }
+
+        /* Style for the YouTube iframe */
+        #youtubePlayer {
+            display: none; /* Hidden initially */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Play a Song from YouTube</h1>
+
+    <!-- The Big Red Button -->
+    <button id="playButton">Play Song</button>
+
+    <!-- The YouTube Player (initially hidden) -->
+    <div id="youtubePlayer">
+        <iframe id="ytPlayer" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        // Function to play the YouTube video when the button is clicked
+        document.getElementById('playButton').addEventListener('click', function() {
+            var videoId = prompt("Enter YouTube video ID or URL:");
+
+            // Extract the video ID from the URL if a URL is provided
+            if (videoId.includes('youtube.com')) {
+                const url = new URL(videoId);
+                videoId = url.searchParams.get("v");
+            }
+
+            if (videoId) {
+                // Show the YouTube player and load the video
+                document.getElementById('youtubePlayer').style.display = 'block';
+                document.getElementById('ytPlayer').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+            } else {
+                alert("Invalid video ID or URL.");
+            }
+        });
+    </script>
+</body>
+</html>
