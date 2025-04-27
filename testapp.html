@@ -3,79 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brendan Earl's Portfolio</title>
+    <title>Test App</title>
     <style>
         /* Style for the button */
-        #playButton {
+        #testButton {
             padding: 20px 40px;
             font-size: 24px;
-            background-color: red;
+            background-color: blue;
             color: white;
             border: none;
             border-radius: 10px;
             cursor: pointer;
         }
         
-        #playButton:hover {
-            background-color: darkred;
-        }
-
-        /* Style for the YouTube iframe */
-        #youtubePlayer {
-            display: none; /* Hidden initially */
-            margin-top: 20px;
-        }
-
-        /* Style for the link */
-        #videoLink {
-            font-size: 18px;
-            color: blue;
-            text-decoration: none;
-            margin-top: 20px;
-            display: block;
+        #testButton:hover {
+            background-color: darkblue;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
+        <h1>Welcome to the Test App</h1>
     </header>
-    
+
     <nav>
         <ul>
-            <li><a href="resume.html">My Resume</a></li>
-            <li><a href="#" id="videoLink">Watch a YouTube Video</a></li>
+            <li><a href="index.html">Back to Portfolio</a></li>
         </ul>
     </nav>
 
     <section>
-        <p>This is a simple webpage to showcase my resume, work, and a song from YouTube.</p>
-        <button id="playButton">Play Song</button>
-
-        <!-- The YouTube Player (initially hidden) -->
-        <div id="youtubePlayer">
-            <iframe id="ytPlayer" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        <p>This is a test page. You can use it to try out different features or content.</p>
+        
+        <!-- Example Button -->
+        <button id="testButton">Click Me</button>
+        
+        <!-- Placeholder for additional content -->
+        <div id="message"></div>
     </section>
 
     <script>
-        // Function to play the YouTube video when the button is clicked
-        document.getElementById('playButton').addEventListener('click', function() {
-            var videoId = "ZXhuso4OTG4"; // Hardcoded YouTube video ID
-
-            // Show the YouTube player and load the video
-            document.getElementById('youtubePlayer').style.display = 'block';
-            document.getElementById('ytPlayer').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
-        });
-
-        // Optional: Make the video link also load the video
-        document.getElementById('videoLink').addEventListener('click', function(e) {
-            e.preventDefault();
-            var videoId = "ZXhuso4OTG4"; // Hardcoded YouTube video ID
-
-            // Show the YouTube player and load the video
-            document.getElementById('youtubePlayer').style.display = 'block';
-            document.getElementById('ytPlayer').src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+        // Add functionality to the button click
+        document.getElementById('testButton').addEventListener('click', function() {
+            document.getElementById('message').innerHTML = "<p>You clicked the button! 🎉</p>";
         });
     </script>
 </body>
