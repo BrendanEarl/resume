@@ -20,11 +20,17 @@
             background-color: darkblue;
         }
 
-        /* Style for the message */
-        #message {
-            font-size: 20px;
+        /* Style for the iframe container */
+        #videoContainer {
             margin-top: 20px;
-            color: green;
+            display: none;
+            text-align: center;
+        }
+
+        /* Style for the iframe video */
+        iframe {
+            width: 560px;
+            height: 315px;
         }
     </style>
 </head>
@@ -44,17 +50,20 @@
 
         <!-- Test App Section -->
         <h2>Test App</h2>
-        <p>Click the button below to see the magic! 🎉</p>
-        <button id="testButton">Click Me</button>
+        <p>Click the button below to play the YouTube video! 🎉</p>
+        <button id="testButton">Play Video</button>
 
-        <!-- Placeholder for the message that will appear when the button is clicked -->
-        <div id="message"></div>
+        <!-- Placeholder for YouTube video -->
+        <div id="videoContainer">
+            <iframe id="youtubeVideo" src="https://www.youtube.com/embed/ZXhuso4OTG4?autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
     </section>
 
     <script>
-        // Add functionality to the button click
+        // Add functionality to the button click to show the YouTube video
         document.getElementById('testButton').addEventListener('click', function() {
-            document.getElementById('message').innerHTML = "<p>You clicked the button! 🎉</p>";
+            // Show the video container
+            document.getElementById('videoContainer').style.display = 'block';
         });
     </script>
 </body>
